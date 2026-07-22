@@ -12,6 +12,78 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Version 5 map reliability patch */
+    #delta-map-v5 {
+      min-height: 560px;
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #151915;
+      border: 1px solid rgba(255,255,255,.12);
+      z-index: 1;
+    }
+    .delta-v5-marker {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #d8b35b;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 14px rgba(0,0,0,.45);
+    }
+    .delta-v5-marker.home {
+      width: 28px;
+      height: 28px;
+      background: #8f2f2f;
+    }
+    .delta-v5-popup .leaflet-popup-content-wrapper,
+    .delta-v5-popup .leaflet-popup-tip {
+      background: #111511;
+      color: #fff;
+    }
+    .delta-v5-popup .leaflet-popup-content { margin: 14px; }
+    .delta-v5-popup button {
+      width: 100%;
+      margin-top: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: #d8b35b;
+      color: #111;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .town-modal[aria-hidden="true"] { display: none; }
+    .town-modal[aria-hidden="false"] { display: grid; }
+    .town-modal { position: fixed; inset: 0; place-items: center; z-index: 9999; padding: 20px; }
+    .town-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.82); }
+    .town-modal-dialog {
+      position: relative;
+      width: min(980px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      background: #111511;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 28px 80px rgba(0,0,0,.5);
+    }
+    .town-photo-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .town-photo-card { margin: 0; overflow: hidden; border-radius: 16px; background: #1b211b; border: 1px solid rgba(255,255,255,.12); }
+    .town-photo-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #242a24; }
+    .town-photo-card figcaption { display: grid; gap: 4px; padding: 14px; }
+    .town-photo-label { position: absolute; margin: 12px; z-index: 2; padding: 5px 9px; border-radius: 999px; background: rgba(0,0,0,.78); color: #fff; font-weight: 800; }
+    .town-modal-close { position: absolute; right: 16px; top: 12px; border: 0; background: transparent; color: #fff; font-size: 34px; cursor: pointer; }
+    body.town-modal-open { overflow: hidden; }
+    @media (max-width: 720px) {
+      #delta-map-v5 { min-height: 430px; }
+      .town-photo-grid { grid-template-columns: 1fr; }
+      .town-modal-dialog { padding: 22px 16px; }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -258,7 +330,7 @@
       </div>
 
       <div class="map-layout">
-        <div id="delta-map" class="reveal" role="application" aria-label="Interactive map of Mississippi Delta towns"></div>
+        <div id="delta-map-v5" class="reveal" role="application" aria-label="Interactive map of Mississippi Delta towns"></div>
 
         <aside class="map-panel reveal">
           <label for="town-filter">Choose a town</label>
@@ -606,5 +678,124 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="script.js"></script>
+
+  <script>
+  (() => {
+    const towns = {
+      cleveland: { name: 'Cleveland', coords: [33.7440, -90.7248], status: 'Home Base', description: 'The home base of Life in the Delta, known for Delta State University, local arts, music, food, and a lively downtown.', historicTitle: 'Cleveland — Then', historicCaption: 'Historic downtown and community life.', presentTitle: 'Cleveland — Now', presentCaption: 'A present-day look at the community.' },
+      shaw: { name: 'Shaw', coords: [33.6029, -90.7751], status: 'Future Story Location', description: 'A Bolivar County community with deep agricultural roots and generations of local history.', historicTitle: 'Shaw — Then', historicCaption: 'Historic streets, businesses, and community landmarks.', presentTitle: 'Shaw — Now', presentCaption: 'A present-day view of Shaw.' },
+      ruleville: { name: 'Ruleville', coords: [33.7254, -90.5515], status: 'Future Story Location', description: 'A Sunflower County town with a strong community identity and an important place in Delta history.', historicTitle: 'Ruleville — Then', historicCaption: 'A look back at Ruleville’s earlier years.', presentTitle: 'Ruleville — Now', presentCaption: 'Ruleville as it appears today.' },
+      indianola: { name: 'Indianola', coords: [33.4509, -90.6480], status: 'Future Story Location', description: 'A music-rich Delta town associated with B.B. King and generations of culture, food, and community life.', historicTitle: 'Indianola — Then', historicCaption: 'Historic Indianola and its cultural story.', presentTitle: 'Indianola — Now', presentCaption: 'A present-day look at Indianola.' },
+      greenville: { name: 'Greenville', coords: [33.4101, -91.0618], status: 'Future Story Location', description: 'One of the Delta’s largest cities, shaped by the Mississippi River, literature, music, food, and industry.', historicTitle: 'Greenville — Then', historicCaption: 'Historic river-city life in Greenville.', presentTitle: 'Greenville — Now', presentCaption: 'Modern Greenville and the river region.' },
+      clarksdale: { name: 'Clarksdale', coords: [34.2001, -90.5709], status: 'Future Story Location', description: 'A world-famous blues destination with historic music venues, creative energy, and unmistakable Delta character.', historicTitle: 'Clarksdale — Then', historicCaption: 'The historic crossroads of Delta blues culture.', presentTitle: 'Clarksdale — Now', presentCaption: 'Today’s Clarksdale music and arts scene.' },
+      greenwood: { name: 'Greenwood', coords: [33.5162, -90.1795], status: 'Future Story Location', description: 'A historic Delta city where the Yazoo and Tallahatchie rivers meet, with strong food, architecture, and cultural traditions.', historicTitle: 'Greenwood — Then', historicCaption: 'Historic Greenwood streets and river life.', presentTitle: 'Greenwood — Now', presentCaption: 'A present-day look at Greenwood.' },
+      leland: { name: 'Leland', coords: [33.4057, -90.8976], status: 'Future Story Location', description: 'A Washington County town known for its creative history, local traditions, and connection to Jim Henson’s early life.', historicTitle: 'Leland — Then', historicCaption: 'Historic Leland and its hometown story.', presentTitle: 'Leland — Now', presentCaption: 'Leland as visitors see it today.' }
+    };
+
+    const svgImage = (town, era) => {
+      const isThen = era === 'Then';
+      const bg = isThen ? '#6b5a43' : '#27382d';
+      const sub = isThen ? 'Historic photograph coming soon' : 'Present-day photograph coming soon';
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900"><rect width="1200" height="900" fill="${bg}"/><path d="M0 665L210 505l160 105 180-210 190 180 155-145 305 230v235H0z" fill="rgba(255,255,255,.12)"/><circle cx="970" cy="175" r="85" fill="rgba(255,255,255,.13)"/><text x="70" y="120" fill="#fff" font-family="Arial,sans-serif" font-size="40" font-weight="700">LIFE IN THE DELTA</text><text x="70" y="675" fill="#fff" font-family="Arial,sans-serif" font-size="78" font-weight="800">${town} — ${era}</text><text x="73" y="740" fill="rgba(255,255,255,.82)" font-family="Arial,sans-serif" font-size="32">${sub}</text></svg>`;
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    };
+
+    const mapEl = document.getElementById('delta-map-v5');
+    if (!mapEl || !window.L) return;
+
+    const map = L.map(mapEl, { scrollWheelZoom: false }).setView([33.72, -90.65], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const markers = {};
+    const markerGroup = L.featureGroup().addTo(map);
+    const markerIcon = (home) => L.divIcon({
+      className: '',
+      html: `<div class="delta-v5-marker${home ? ' home' : ''}"></div>`,
+      iconSize: home ? [28,28] : [22,22],
+      iconAnchor: home ? [14,14] : [11,11],
+      popupAnchor: [0,-14]
+    });
+
+    const modal = document.getElementById('town-modal');
+    let lastFocused = null;
+
+    function openTown(key) {
+      const town = towns[key];
+      if (!town) return;
+      lastFocused = document.activeElement;
+      document.getElementById('town-modal-title').textContent = town.name;
+      document.getElementById('town-modal-status').textContent = town.status;
+      document.getElementById('town-modal-description').textContent = town.description;
+      const oldImg = document.getElementById('town-historic-image');
+      const nowImg = document.getElementById('town-present-image');
+      oldImg.src = svgImage(town.name, 'Then');
+      nowImg.src = svgImage(town.name, 'Now');
+      oldImg.alt = `Historic image placeholder for ${town.name}, Mississippi`;
+      nowImg.alt = `Present-day image placeholder for ${town.name}, Mississippi`;
+      document.getElementById('town-historic-title').textContent = town.historicTitle;
+      document.getElementById('town-historic-caption').textContent = town.historicCaption;
+      document.getElementById('town-present-title').textContent = town.presentTitle;
+      document.getElementById('town-present-caption').textContent = town.presentCaption;
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('town-modal-open');
+      modal.querySelector('.town-modal-close').focus();
+      const panel = document.getElementById('selected-town');
+      panel.querySelector('strong').textContent = town.name;
+      panel.querySelector('p').textContent = town.description;
+      document.getElementById('town-filter').value = key;
+    }
+
+    function closeTown() {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('town-modal-open');
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    Object.entries(towns).forEach(([key, town]) => {
+      const marker = L.marker(town.coords, { icon: markerIcon(key === 'cleveland'), title: town.name }).addTo(markerGroup);
+      marker.bindPopup(`<div class="delta-v5-popup"><strong>${town.name}</strong><br><small>${town.status}</small><button type="button" data-town-key="${key}">View Then &amp; Now</button></div>`, { className: 'delta-v5-popup' });
+      marker.on('popupopen', (event) => {
+        const button = event.popup.getElement()?.querySelector('[data-town-key]');
+        if (button) button.addEventListener('click', () => openTown(key), { once: true });
+      });
+      marker.on('click', () => {
+        const panel = document.getElementById('selected-town');
+        panel.querySelector('strong').textContent = town.name;
+        panel.querySelector('p').textContent = 'Use the button in the marker popup to open the Then & Now gallery.';
+        document.getElementById('town-filter').value = key;
+      });
+      markers[key] = marker;
+    });
+
+    map.fitBounds(markerGroup.getBounds().pad(0.18));
+    setTimeout(() => map.invalidateSize(), 250);
+
+    document.getElementById('town-filter')?.addEventListener('change', (event) => {
+      const key = event.target.value;
+      if (key === 'all') {
+        map.fitBounds(markerGroup.getBounds().pad(0.18));
+        const panel = document.getElementById('selected-town');
+        panel.querySelector('strong').textContent = 'The Mississippi Delta';
+        panel.querySelector('p').textContent = 'Choose a marker or town above to see its Then & Now gallery.';
+        return;
+      }
+      const town = towns[key];
+      map.flyTo(town.coords, 11, { duration: 0.8 });
+      markers[key].openPopup();
+      setTimeout(() => openTown(key), 500);
+    });
+
+    modal.querySelectorAll('[data-close-town-modal]').forEach(el => el.addEventListener('click', closeTown));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeTown();
+    });
+
+    window.addEventListener('resize', () => map.invalidateSize());
+  })();
+  </script>
+
 </body>
 </html>
