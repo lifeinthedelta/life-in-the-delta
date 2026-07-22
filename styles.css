@@ -447,3 +447,191 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 40px; align-i
   .footer-links { flex-wrap: wrap; }
   .modal-dialog { padding: 45px 24px 32px; }
 }
+
+
+/* =========================================================
+   VERSION 4 ENHANCEMENTS
+   ========================================================= */
+
+.channel-note {
+  display: inline-grid;
+  gap: 4px;
+  margin-top: 30px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--gold);
+  background: rgba(201,154,70,.06);
+}
+.channel-note span {
+  color: var(--muted);
+  font-size: .67rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.channel-note strong {
+  color: var(--cream-soft);
+  font-family: "Oswald", sans-serif;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.social-grid {
+  align-items: stretch;
+}
+.social-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 142px;
+}
+.social-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -25% -75% auto;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgba(201,154,70,.08);
+  transition: transform .35s ease, opacity .35s ease;
+}
+.social-card:hover::after {
+  transform: scale(1.25);
+  opacity: .85;
+}
+.social-card > * {
+  position: relative;
+  z-index: 1;
+}
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+.social-card.youtube:hover,
+.social-card.instagram:hover,
+.social-card.facebook:hover,
+.social-card.email:hover {
+  background: #192019;
+}
+.social-card strong {
+  font-size: 1rem;
+  letter-spacing: .05em;
+}
+
+.video-spotlight {
+  padding: 0 max(24px, calc((100vw - var(--max)) / 2)) 120px;
+}
+.video-shell {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  min-height: 620px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.video-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(201,154,70,.3), transparent 38%),
+    linear-gradient(145deg, #142019, #090c09);
+}
+.video-art::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border: 1px solid rgba(201,154,70,.28);
+}
+.video-art img {
+  width: min(500px, 76%);
+  border-radius: 50%;
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,.58));
+}
+.video-play {
+  position: absolute;
+  width: 94px;
+  height: 94px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold-light);
+  border-radius: 50%;
+  background: rgba(8,10,8,.76);
+  color: var(--gold-light);
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 0 12px rgba(8,10,8,.22);
+  transition: transform .25s ease, background .25s ease;
+}
+.video-play:hover {
+  transform: scale(1.08);
+  background: var(--gold);
+  color: var(--ink);
+}
+.video-play span {
+  margin-left: 4px;
+  font-size: 1.7rem;
+}
+.video-badge {
+  position: absolute;
+  left: 35px;
+  bottom: 35px;
+  padding: 9px 12px;
+  border: 1px solid rgba(201,154,70,.38);
+  background: rgba(8,10,8,.72);
+  color: var(--gold-light);
+  font-family: "Oswald", sans-serif;
+  font-size: .7rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.video-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(50px, 7vw, 100px);
+}
+.video-copy h2 {
+  margin: 0 0 22px;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(3rem, 5.2vw, 5.5rem);
+  line-height: .94;
+  text-transform: uppercase;
+}
+.video-copy p:not(.section-label) {
+  color: var(--muted);
+}
+.video-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+@media (max-width: 900px) {
+  .video-shell {
+    grid-template-columns: 1fr;
+  }
+  .video-art {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 620px) {
+  .video-spotlight {
+    padding-inline: 16px;
+    padding-bottom: 82px;
+  }
+  .video-art {
+    min-height: 390px;
+  }
+  .video-copy {
+    padding: 48px 24px;
+  }
+  .video-actions,
+  .video-actions .button {
+    width: 100%;
+  }
+  .social-card {
+    min-height: 120px;
+  }
+}

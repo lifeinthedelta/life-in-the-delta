@@ -231,3 +231,8 @@ function initializeDeltaMap() {
 }
 
 window.addEventListener("load", initializeDeltaMap);
+
+
+document.querySelectorAll(".social-card").forEach((card, index) => {
+  card.style.transitionDelay = `${index * 45}ms`;
+});
