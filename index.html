@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Living in the Delta shares the people, places, culture, and stories of the Mississippi Delta.">
-  <meta name="theme-color" content="#090b09" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Living in the Delta is a documentary-style series sharing the people, places, culture, and real stories of the Mississippi Delta.">
+  <meta name="theme-color" content="#09100b">
+  <meta property="og:title" content="Living in the Delta">
+  <meta property="og:description" content="Our People. Our Places. Our Story.">
+  <meta property="og:image" content="logo.png">
   <title>Living in the Delta | Our People. Our Places. Our Story.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Living in the Delta home">
-      <img src="logo.png" alt="Living in the Delta logo" />
+      <img src="logo.png" alt="Living in the Delta logo">
       <span>Living in the Delta</span>
     </a>
 
@@ -28,223 +30,147 @@
     </button>
 
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#about">About</a>
+      <a href="#watch">Watch</a>
       <a href="#episodes">Episodes</a>
-      <a href="#community">Community</a>
+      <a href="#towns">Towns</a>
       <a href="#map">Map</a>
-      <a href="#news">News</a>
-      <a href="#casting">Casting</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#casting">Get Featured</a>
       <a class="nav-cta" href="#contact">Connect</a>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-bg"></div>
+      <div class="hero-glow"></div>
       <div class="hero-content reveal">
         <p class="eyebrow">An Original Mississippi Delta Docuseries</p>
-        <h1>Small Town.<br>Big Personalities.<br><span>Real Life.</span></h1>
+        <h1>Our People.<br>Our Places.<br><span>Our Story.</span></h1>
         <p class="hero-copy">
-          Real people, unforgettable places, and the everyday stories that make the Mississippi Delta feel like home.
+          A documentary-style series capturing everyday life, unforgettable personalities,
+          hometown businesses, history, culture, and community across the Mississippi Delta.
         </p>
         <div class="hero-actions">
-          <button class="button primary trailer-button" type="button">
-            <span aria-hidden="true">▶</span> Watch the Teaser
-          </button>
-          <a class="button secondary" href="#episodes">Explore Season One</a>
+          <a class="button primary" href="#watch"><span>▶</span> Watch the Preview</a>
+          <a class="button secondary" href="#towns">Explore Cleveland & Boyle</a>
         </div>
         <div class="hero-meta">
-          <span>Reality</span><i></i><span>Documentary</span><i></i><span>Lifestyle</span>
+          <span>Documentary</span><i></i><span>Community</span><i></i><span>Mississippi Delta</span>
         </div>
       </div>
-
-      <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
-        <span>Explore</span>
-        <b>↓</b>
-      </a>
+      <a class="scroll-cue" href="#watch"><span>Explore</span><b>↓</b></a>
     </section>
 
-    <section class="ticker" aria-label="Series update">
+    <section class="ticker" aria-label="Series updates">
       <div class="ticker-track">
-        <span>NOW IN DEVELOPMENT</span>
-        <b>•</b>
-        <span>CASTING COMMUNITY STORIES</span>
-        <b>•</b>
-        <span>FEATURING MISSISSIPPI DELTA BUSINESSES</span>
-        <b>•</b>
-        <span>NEW UPDATES COMING SOON</span>
-        <b>•</b>
+        <span>NOW IN DEVELOPMENT</span><b>•</b>
+        <span>LAUNCHING IN CLEVELAND & BOYLE</span><b>•</b>
+        <span>CASTING COMMUNITY STORIES</span><b>•</b>
+        <span>FOLLOW THE JOURNEY</span><b>•</b>
       </div>
     </section>
 
-    <section class="section intro-section" id="about">
-      <div class="section-copy reveal">
-        <p class="section-label">The Story</p>
-        <h2>The Delta is more than a place. <em>It’s a way of life.</em></h2>
-        <p class="lead">
-          <strong>Living in the Delta</strong> is a documentary-style series created to celebrate the people,
-          small businesses, local events, traditions, humor, challenges, and hidden gems of the Mississippi Delta.
-        </p>
-        <p>
-          Every episode will center real voices and genuine moments—not scripted drama. The goal is to preserve
-          memories, introduce viewers to remarkable neighbors, and show the world what makes this region special.
-        </p>
-      </div>
-
-      <aside class="show-card reveal">
-        <img src="logo.png" alt="Living in the Delta logo" />
-        <dl>
-          <div><dt>Genre</dt><dd>Reality • Documentary • Lifestyle</dd></div>
-          <div><dt>Home Base</dt><dd>Cleveland, Mississippi</dd></div>
-          <div><dt>Status</dt><dd><span class="status-dot"></span> In Development</dd></div>
-          <div><dt>Created By</dt><dd>Jase Herrin</dd></div>
-        </dl>
-      </aside>
-    </section>
-
-    <section class="stats-section" aria-label="Series goals">
-      <div class="stat reveal">
-        <strong class="counter" data-target="8">0</strong>
-        <span>Delta towns on our map</span>
-      </div>
-      <div class="stat reveal">
-        <strong class="counter" data-target="4">0</strong>
-        <span>Season one stories planned</span>
-      </div>
-      <div class="stat reveal">
-        <strong class="counter" data-target="1">0</strong>
-        <span>Community at the heart of it all</span>
-      </div>
-      <div class="stat reveal">
-        <strong class="counter" data-target="100" data-suffix="%">0</strong>
-        <span>Real Mississippi Delta</span>
-      </div>
-    </section>
-
-    <section class="section episodes-section" id="episodes">
+    <section class="section watch-section" id="watch">
       <div class="section-heading reveal">
         <div>
-          <p class="section-label">Season One</p>
-          <h2>Stories worth watching.</h2>
+          <p class="section-label">Now Playing</p>
+          <h2>The beginning of a new Delta story.</h2>
         </div>
-        <p>Take a first look at the stories planned for the debut season.</p>
+        <p>The official introduction video will appear here when it is published on YouTube.</p>
       </div>
 
-      <div class="episode-row">
-        <article class="episode-card episode-one reveal">
-          <div class="episode-number">01</div>
-          <div class="episode-content">
-            <span class="episode-status">Series Premiere</span>
-            <h3>Welcome to the Delta</h3>
-            <p>Meet the people, places, and personalities at the heart of the series.</p>
-            <button class="text-button episode-info" type="button" data-episode="Welcome to the Delta">
-              View details <span>→</span>
-            </button>
+      <div class="watch-shell reveal">
+        <div class="watch-art">
+          <img src="logo.png" alt="Living in the Delta">
+          <button class="play-button trailer-button" type="button" aria-label="Open preview information">▶</button>
+          <span class="watch-badge">Official Preview</span>
+        </div>
+        <div class="watch-copy">
+          <p class="section-label">Featured Video</p>
+          <h3>Welcome to Living in the Delta</h3>
+          <p>
+            Discover what the show is about, where the first stories will be filmed,
+            and why the people of the Mississippi Delta deserve the spotlight.
+          </p>
+          <div class="watch-actions">
+            <a class="button primary" href="https://www.youtube.com/@LivingintheDelta" target="_blank" rel="noopener noreferrer">Visit YouTube</a>
+            <a class="button secondary" href="https://www.instagram.com/livinginthedelta/" target="_blank" rel="noopener noreferrer">Follow Instagram</a>
           </div>
-        </article>
-
-        <article class="episode-card episode-two reveal">
-          <div class="episode-number">02</div>
-          <div class="episode-content">
-            <span class="episode-status">In Development</span>
-            <h3>Picture Perfect?</h3>
-            <p>A busy photography weekend brings creativity, laughs, and unexpected challenges.</p>
-            <button class="text-button episode-info" type="button" data-episode="Picture Perfect?">
-              View details <span>→</span>
-            </button>
-          </div>
-        </article>
-
-        <article class="episode-card episode-three reveal">
-          <div class="episode-number">03</div>
-          <div class="episode-content">
-            <span class="episode-status">In Development</span>
-            <h3>Community Strong</h3>
-            <p>Local events, hometown heroes, and neighbors who always show up.</p>
-            <button class="text-button episode-info" type="button" data-episode="Community Strong">
-              View details <span>→</span>
-            </button>
-          </div>
-        </article>
-
-        <article class="episode-card episode-four reveal">
-          <div class="episode-number">04</div>
-          <div class="episode-content">
-            <span class="episode-status">In Development</span>
-            <h3>Small Town Adventures</h3>
-            <p>Hidden gems, local food, spontaneous stops, and unforgettable Delta experiences.</p>
-            <button class="text-button episode-info" type="button" data-episode="Small Town Adventures">
-              View details <span>→</span>
-            </button>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
 
-    <section class="trailer-banner">
-      <div class="trailer-banner-content reveal">
-        <p class="section-label">Official Preview</p>
-        <h2>A new way to see the Mississippi Delta.</h2>
-        <p>The first official teaser is coming soon. Follow the show to be there when it premieres.</p>
-        <button class="button primary trailer-button" type="button">
-          <span aria-hidden="true">▶</span> Teaser Coming Soon
-        </button>
-      </div>
-    </section>
-
-    <section class="section community-section" id="community">
+    <section class="section latest-section" id="episodes">
       <div class="section-heading reveal">
         <div>
-          <p class="section-label">Meet the Community</p>
-          <h2>The people are the main characters.</h2>
+          <p class="section-label">Latest Episode</p>
+          <h2>Season One starts here.</h2>
         </div>
-        <p>Every story begins with someone who makes the Delta more interesting, welcoming, or unforgettable.</p>
+        <p>Episode details will grow as interviews, locations, and filming dates are confirmed.</p>
       </div>
 
-      <div class="community-grid">
-        <article class="community-card reveal">
-          <div class="community-icon">🏪</div>
-          <span>Local Economy</span>
-          <h3>Small Businesses</h3>
-          <p>Meet the owners, creators, and teams helping Delta towns grow.</p>
+      <article class="latest-card reveal">
+        <div class="latest-number">01</div>
+        <div class="latest-content">
+          <span class="episode-status">Series Premiere • In Development</span>
+          <h3>Welcome to the Delta</h3>
+          <p>
+            The series begins in Cleveland and Boyle, introducing the communities, personalities,
+            businesses, traditions, and landscapes that will shape the first chapter.
+          </p>
+          <div class="latest-actions">
+            <button class="text-button episode-info" type="button" data-episode="Welcome to the Delta">View episode details →</button>
+            <a class="text-button" href="#casting">Suggest a story →</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="episode-shelf" aria-label="Upcoming episodes">
+        <article class="episode-card reveal">
+          <span>02</span><small>In Development</small><h3>Picture Perfect?</h3>
+          <p>Photography, creativity, clients, and the unpredictable moments behind a small business.</p>
         </article>
-        <article class="community-card reveal">
-          <div class="community-icon">🎤</div>
-          <span>Arts & Culture</span>
-          <h3>Musicians & Creators</h3>
-          <p>Showcasing the talent, sound, art, and imagination born here.</p>
+        <article class="episode-card reveal">
+          <span>03</span><small>In Development</small><h3>Community Strong</h3>
+          <p>Events, organizations, educators, volunteers, and neighbors who always show up.</p>
         </article>
-        <article class="community-card reveal">
-          <div class="community-icon">🎉</div>
-          <span>Hometown Life</span>
-          <h3>Events & Traditions</h3>
-          <p>Festivals, celebrations, school events, reunions, and traditions.</p>
-        </article>
-        <article class="community-card reveal">
-          <div class="community-icon">❤️</div>
-          <span>Local Impact</span>
-          <h3>People Who Give Back</h3>
-          <p>Educators, volunteers, leaders, and neighbors making a difference.</p>
+        <article class="episode-card reveal">
+          <span>04</span><small>In Development</small><h3>Small Town Adventures</h3>
+          <p>Hidden gems, local food, historic stops, and spontaneous Delta experiences.</p>
         </article>
       </div>
     </section>
 
-    <section class="featured-section">
-      <div class="featured-visual reveal">
-        <img src="logo.png" alt="Living in the Delta logo" />
+    <section class="section town-section" id="towns">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">Launch Communities</p>
+          <h2>Starting in Cleveland & Boyle.</h2>
+        </div>
+        <p>These two communities are the first focus of Living in the Delta.</p>
       </div>
-      <div class="featured-copy reveal">
-        <p class="section-label">Featured Spotlight</p>
-        <span class="feature-kicker">Your story could be here</span>
-        <h2>Know a business, organization, or neighbor we should feature?</h2>
-        <p>
-          We are looking for stories with heart—new businesses, longtime local favorites, community projects,
-          talented creators, hometown traditions, and people whose work deserves recognition.
-        </p>
-        <a class="button primary" href="mailto:lifeinthedelta@yahoo.com?subject=Life%20in%20the%20Delta%20Story%20Idea">
-          Submit a Story Idea
-        </a>
+
+      <div class="town-grid">
+        <article class="town-card cleveland-card reveal">
+          <div class="town-card-overlay"></div>
+          <div class="town-card-content">
+            <span>Home Base</span>
+            <h3>Cleveland, Mississippi</h3>
+            <p>Downtown life, local businesses, arts, education, food, events, and hometown personalities.</p>
+            <a class="button primary" href="cleveland.html">Explore Cleveland</a>
+          </div>
+        </article>
+
+        <article class="town-card boyle-card reveal">
+          <div class="town-card-overlay"></div>
+          <div class="town-card-content">
+            <span>Featured Community</span>
+            <h3>Boyle, Mississippi</h3>
+            <p>A close-knit community with local stories, familiar faces, neighborhood pride, and Delta character.</p>
+            <a class="button primary" href="boyle.html">Explore Boyle</a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -252,182 +178,73 @@
       <div class="section-heading reveal">
         <div>
           <p class="section-label">Explore the Region</p>
-          <h2>Interactive Delta map.</h2>
+          <h2>Interactive filming map.</h2>
         </div>
-        <p>Select a town to explore possible filming stops and future community stories.</p>
+        <p>Select Cleveland or Boyle to view the current launch area. More towns will be added as the series grows.</p>
       </div>
 
       <div class="map-layout">
-        <div id="delta-map" class="reveal" role="application" aria-label="Interactive map of Mississippi Delta towns"></div>
-
+        <div id="delta-map" class="reveal" role="application" aria-label="Interactive map of Cleveland and Boyle, Mississippi"></div>
         <aside class="map-panel reveal">
           <label for="town-filter">Choose a town</label>
           <select id="town-filter">
-            <option value="all">View the full map</option>
+            <option value="all">View both communities</option>
             <option value="cleveland">Cleveland</option>
-            <option value="shaw">Shaw</option>
-            <option value="ruleville">Ruleville</option>
-            <option value="indianola">Indianola</option>
-            <option value="greenville">Greenville</option>
-            <option value="clarksdale">Clarksdale</option>
-            <option value="greenwood">Greenwood</option>
-            <option value="leland">Leland</option>
+            <option value="boyle">Boyle</option>
           </select>
-
           <div class="selected-town" id="selected-town" aria-live="polite">
-            <span>Currently viewing</span>
-            <strong>The Mississippi Delta</strong>
-            <p>Choose a marker or town above to learn more.</p>
+            <span>Current launch area</span>
+            <strong>Cleveland & Boyle</strong>
+            <p>Select a marker to learn more about the community and planned story focus.</p>
           </div>
-
-          <div class="map-legend">
-            <span><i class="legend-dot home"></i> Home base</span>
-            <span><i class="legend-dot future"></i> Future story location</span>
+          <div class="map-links">
+            <a href="cleveland.html">Cleveland page →</a>
+            <a href="boyle.html">Boyle page →</a>
           </div>
-
-          <p class="map-note">Markers show general town centers, not private filming locations.</p>
+          <p class="map-note">Markers represent general town centers, not private filming locations.</p>
         </aside>
       </div>
     </section>
 
-    <section class="section gallery-section">
+    <section class="section gallery-section" id="gallery">
       <div class="section-heading reveal">
         <div>
           <p class="section-label">Visual Journal</p>
           <h2>Scenes from the Delta.</h2>
         </div>
-        <p>Original production photography will be added as filming begins.</p>
+        <p>Original photography and production stills will replace these story categories as filming begins.</p>
       </div>
 
       <div class="gallery-grid">
-        <button class="gallery-tile gallery-large reveal" type="button" data-caption="Delta landscapes and sunsets">
-          <span class="gallery-icon">🌅</span>
-          <strong>Landscapes</strong>
-          <small>Sunsets, fields, rivers, and backroads</small>
+        <button class="gallery-tile gallery-hero reveal" type="button" data-caption="Delta landscapes">
+          <span>🌅</span><div><strong>Delta Landscapes</strong><small>Fields, sunsets, rivers, roads, and wide-open skies</small></div>
         </button>
         <button class="gallery-tile reveal" type="button" data-caption="Behind the scenes">
-          <span class="gallery-icon">🎬</span>
-          <strong>Behind the Scenes</strong>
-          <small>Production days and candid moments</small>
+          <span>🎬</span><div><strong>Behind the Scenes</strong><small>Production days, interviews, and candid moments</small></div>
         </button>
         <button class="gallery-tile reveal" type="button" data-caption="Community life">
-          <span class="gallery-icon">🤝</span>
-          <strong>Community</strong>
-          <small>Events, neighbors, and hometown life</small>
+          <span>🤝</span><div><strong>Community Life</strong><small>Events, neighbors, organizations, and traditions</small></div>
         </button>
-        <button class="gallery-tile gallery-wide reveal" type="button" data-caption="Local businesses">
-          <span class="gallery-icon">🏬</span>
-          <strong>Local Businesses</strong>
-          <small>The people and places keeping the Delta moving</small>
+        <button class="gallery-tile reveal" type="button" data-caption="Local businesses">
+          <span>🏪</span><div><strong>Local Businesses</strong><small>Owners, teams, shops, food, and hometown service</small></div>
+        </button>
+        <button class="gallery-tile gallery-wide reveal" type="button" data-caption="People of the Delta">
+          <span>📸</span><div><strong>People of the Delta</strong><small>Portraits and stories of the personalities who make the region unforgettable</small></div>
         </button>
       </div>
     </section>
 
-    
-<section class="video-spotlight" id="watch">
-  <div class="video-shell reveal">
-    <div class="video-art">
-      <img src="logo.png" alt="Living in the Delta logo">
-      <button class="video-play trailer-button" type="button" aria-label="Open teaser information">
-        <span>▶</span>
-      </button>
-      <div class="video-badge">Official Channel</div>
-    </div>
-
-    <div class="video-copy">
-      <p class="section-label">Watch & Subscribe</p>
-      <h2>The story continues on YouTube.</h2>
-      <p>
-        Trailers, behind-the-scenes clips, community features, and future episodes
-        will be shared on the official Living in the Delta channel.
-      </p>
-      <div class="video-actions">
-        <a class="button primary"
-           href="https://www.youtube.com/@LivingintheDelta"
-           target="_blank"
-           rel="noopener noreferrer">
-          Visit YouTube
-        </a>
-        <a class="button secondary"
-           href="https://www.instagram.com/lifeinthemsdelta/"
-           target="_blank"
-           rel="noopener noreferrer">
-          Follow Instagram
-        </a>
+    <section class="section feature-strip">
+      <div class="feature-copy reveal">
+        <p class="section-label">Community Spotlight</p>
+        <h2>Know someone whose story deserves to be seen?</h2>
+        <p>
+          Living in the Delta is looking for families, businesses, creators, educators,
+          volunteers, organizations, events, traditions, and hometown personalities.
+        </p>
+        <a class="button primary" href="mailto:livinginthedelta@yahoo.com?subject=Living%20in%20the%20Delta%20Story%20Idea">Submit a Story Idea</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section news-section" id="news">
-      <div class="section-heading reveal">
-        <div>
-          <p class="section-label">Newsroom</p>
-          <h2>Latest from the series.</h2>
-        </div>
-        <p>Production announcements, casting updates, and new community features.</p>
-      </div>
-
-      <div class="news-grid">
-        <article class="news-feature reveal">
-          <span class="news-date">July 2026</span>
-          <h3>Official website launches</h3>
-          <p>
-            Living in the Delta now has an official online home for casting announcements,
-            episode updates, community features, and production news.
-          </p>
-          <a href="#top">Explore the website <span>→</span></a>
-        </article>
-
-        <div class="news-list">
-          <article class="news-item reveal">
-            <span>Production</span>
-            <div>
-              <h3>Series currently in development</h3>
-              <p>Planning, outreach, and early story development are underway.</p>
-            </div>
-          </article>
-          <article class="news-item reveal">
-            <span>Casting</span>
-            <div>
-              <h3>Community stories wanted</h3>
-              <p>Families, businesses, creators, and organizations are invited to reach out.</p>
-            </div>
-          </article>
-          <article class="news-item reveal">
-            <span>Coming Soon</span>
-            <div>
-              <h3>Teasers and behind-the-scenes updates</h3>
-              <p>Follow the official Facebook page for the newest announcements.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section calendar-section">
-      <div class="section-heading reveal">
-        <div>
-          <p class="section-label">Production Calendar</p>
-          <h2>What’s coming next.</h2>
-        </div>
-        <p>Exact dates will be announced once filming and community appearances are confirmed.</p>
-      </div>
-
-      <div class="calendar-grid">
-        <article class="calendar-item reveal">
-          <div class="calendar-date"><span>NOW</span><strong>01</strong></div>
-          <div><span>Development</span><h3>Story research & community outreach</h3><p>Collecting ideas and connecting with potential participants.</p></div>
-        </article>
-        <article class="calendar-item reveal">
-          <div class="calendar-date"><span>NEXT</span><strong>02</strong></div>
-          <div><span>Pre-Production</span><h3>Interviews & filming plans</h3><p>Confirming stories, locations, schedules, and release forms.</p></div>
-        </article>
-        <article class="calendar-item reveal">
-          <div class="calendar-date"><span>SOON</span><strong>03</strong></div>
-          <div><span>Production</span><h3>Season one filming begins</h3><p>Cameras roll on the first official stories of the series.</p></div>
-        </article>
-      </div>
+      <div class="feature-logo reveal"><img src="logo.png" alt="Living in the Delta logo"></div>
     </section>
 
     <section class="casting-section" id="casting">
@@ -436,114 +253,53 @@
         <p class="section-label">Casting & Features</p>
         <h2>Your story could be part of the show.</h2>
         <p>
-          We are looking for community members, families, small business owners, musicians,
-          educators, volunteers, organizations, and event organizers across the Mississippi Delta.
+          No acting experience is needed. We are looking for genuine people and real stories
+          in Cleveland, Boyle, and eventually communities across the Mississippi Delta.
         </p>
-
         <div class="casting-checks">
-          <span>✓ No acting experience needed</span>
-          <span>✓ Businesses and events may apply</span>
-          <span>✓ Release forms are required</span>
-          <span>✓ Guardian approval is required for minors</span>
+          <span>✓ Families and individuals</span>
+          <span>✓ Small businesses and organizations</span>
+          <span>✓ Events, musicians, artists, and educators</span>
+          <span>✓ Guardian permission required for minors</span>
         </div>
-
         <div class="casting-actions">
-          <a class="button primary" href="mailto:lifeinthedelta@yahoo.com?subject=Life%20in%20the%20Delta%20Casting%20Interest">
-            Email the Show
-          </a>
-          <a class="button secondary" href="#contact">Follow Updates</a>
+          <a class="button primary" href="mailto:livinginthedelta@yahoo.com?subject=Living%20in%20the%20Delta%20Casting%20Interest">Email the Show</a>
+          <a class="button secondary" href="https://www.facebook.com/profile.php?id=61592411873003" target="_blank" rel="noopener noreferrer">Follow Updates</a>
         </div>
       </div>
     </section>
 
-    
-<section class="section contact-section" id="contact">
-  <div class="contact-copy reveal">
-    <p class="section-label">Stay Connected</p>
-    <h2>Follow the journey.</h2>
-    <p>
-      Get casting updates, behind-the-scenes clips, community spotlights, trailers,
-      and episode announcements.
-    </p>
-    <a class="email-link" href="mailto:lifeinthedelta@yahoo.com">lifeinthedelta@yahoo.com</a>
+    <section class="section contact-section" id="contact">
+      <div class="contact-copy reveal">
+        <p class="section-label">Stay Connected</p>
+        <h2>Follow the journey.</h2>
+        <p>Get casting updates, production clips, community spotlights, trailers, and episode announcements.</p>
+        <a class="email-link" href="mailto:livinginthedelta@yahoo.com">livinginthedelta@yahoo.com</a>
+      </div>
 
-    <div class="channel-note">
-      <span>Now online</span>
-      <strong>Facebook • YouTube • Instagram</strong>
-    </div>
-  </div>
-
-  <div class="social-grid reveal">
-    <a class="social-card facebook"
-       href="https://www.facebook.com/profile.php?id=61592411873003"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Follow Living in the Delta on Facebook">
-      <span class="social-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v9h4v-9h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg>
-      </span>
-      <div><small>Follow us on</small><strong>Facebook</strong></div>
-      <b>↗</b>
-    </a>
-
-    <a class="social-card email"
-       href="mailto:lifeinthedelta@yahoo.com"
-       aria-label="Email Living in the Delta">
-      <span class="social-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5Zm2 2v.5l7 5 7-5V7H5Zm14 10V10l-7 5-7-5v7h14Z"/></svg>
-      </span>
-      <div><small>Send us an</small><strong>Email</strong></div>
-      <b>↗</b>
-    </a>
-
-    <a class="social-card youtube"
-       href="https://www.youtube.com/@LivingintheDelta"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Subscribe to Living in the Delta on YouTube">
-      <span class="social-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M21.6 7.2c-.2-1.3-1.2-2.3-2.5-2.5C17.3 4.3 14.7 4 12 4s-5.3.3-7.1.7A3.2 3.2 0 0 0 2.4 7.2C2.1 8.7 2 10.3 2 12s.1 3.3.4 4.8c.2 1.3 1.2 2.3 2.5 2.5 1.8.4 4.4.7 7.1.7s5.3-.3 7.1-.7c1.3-.2 2.3-1.2 2.5-2.5.3-1.5.4-3.1.4-4.8s-.1-3.3-.4-4.8ZM10 16V8l6 4-6 4Z"/></svg>
-      </span>
-      <div><small>Subscribe on</small><strong>YouTube</strong></div>
-      <b>↗</b>
-    </a>
-
-    <a class="social-card instagram"
-       href="https://www.instagram.com/lifeinthemsdelta/"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Follow Living in the Delta on Instagram">
-      <span class="social-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
-      </span>
-      <div><small>Follow us on</small><strong>Instagram</strong></div>
-      <b>↗</b>
-    </a>
-  </div>
-</section>
-
+      <div class="social-grid reveal">
+        <a class="social-card" href="https://www.facebook.com/profile.php?id=61592411873003" target="_blank" rel="noopener noreferrer"><span>f</span><div><small>Follow on</small><strong>Facebook</strong></div><b>↗</b></a>
+        <a class="social-card" href="https://www.instagram.com/livinginthedelta/" target="_blank" rel="noopener noreferrer"><span>◎</span><div><small>Follow on</small><strong>Instagram</strong></div><b>↗</b></a>
+        <a class="social-card" href="https://www.youtube.com/@LivingintheDelta" target="_blank" rel="noopener noreferrer"><span>▶</span><div><small>Subscribe on</small><strong>YouTube</strong></div><b>↗</b></a>
+        <a class="social-card" href="mailto:livinginthedelta@yahoo.com"><span>✉</span><div><small>Send an</small><strong>Email</strong></div><b>↗</b></a>
+      </div>
+    </section>
 
     <section class="final-cta">
-      <img src="logo.png" alt="Living in the Delta logo" />
-      <div>
-        <p>Our People. Our Places. Our Story.</p>
-        <a href="#top">Return to the top ↑</a>
-      </div>
+      <img src="logo.png" alt="Living in the Delta logo">
+      <div><p>Our People. Our Places. Our Story.</p><a href="#top">Return to the top ↑</a></div>
     </section>
   </main>
 
   <footer>
     <div class="footer-brand">
-      <img src="logo.png" alt="" />
+      <img src="logo.png" alt="">
       <div><strong>Living in the Delta</strong><span>An original Mississippi Delta docuseries</span></div>
     </div>
     <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#episodes">Episodes</a>
-      <a href="#casting">Casting</a>
-      <a href="mailto:lifeinthedelta@yahoo.com">Contact</a>
+      <a href="#watch">Watch</a><a href="#episodes">Episodes</a><a href="#towns">Towns</a><a href="#casting">Casting</a>
     </div>
-    <p>© <span id="year"></span> Living in the Delta. Our People. Our Places. Our Story.</p>
+    <p>© <span id="year"></span> Living in the Delta.</p>
   </footer>
 
   <div class="modal" id="site-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -552,11 +308,9 @@
       <button class="modal-close" type="button" aria-label="Close" data-close-modal>×</button>
       <span class="modal-icon">🎬</span>
       <p class="section-label">Living in the Delta</p>
-      <h2 id="modal-title">The official teaser is coming soon.</h2>
-      <p id="modal-copy">Follow the official Facebook page so you do not miss the premiere.</p>
-      <a class="button primary" href="https://www.facebook.com/profile.php?id=61592411873003" target="_blank" rel="noopener noreferrer">
-        Follow on Facebook
-      </a>
+      <h2 id="modal-title">The official preview is coming soon.</h2>
+      <p id="modal-copy">Follow the official pages so you do not miss it.</p>
+      <a class="button primary" href="https://www.youtube.com/@LivingintheDelta" target="_blank" rel="noopener noreferrer">Visit YouTube</a>
     </div>
   </div>
 

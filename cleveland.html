@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cleveland community page for Living in the Delta.">
+  <title>Cleveland | Living in the Delta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .town-page-hero { min-height: 78vh; padding: 140px 7vw 80px; display: flex; align-items: end; position: relative; background: linear-gradient(135deg,#173120,#08100a); }
+    .town-page-hero::before { content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size:60px 60px; }
+    .town-page-hero > div { position:relative; z-index:2; max-width:900px; }
+    .town-page-hero h1 { font-family:"Anton"; text-transform:uppercase; font-size:clamp(4rem,10vw,9rem); line-height:.9; margin:15px 0; }
+    .town-page-hero p { color:#d0d0c5; max-width:720px; line-height:1.8; font-size:1.08rem; }
+    .story-list { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+    .story-list article { padding:28px; min-height:230px; background:var(--panel); border:1px solid var(--line); }
+    .story-list span { color:var(--gold-light); font-family:"Oswald"; text-transform:uppercase; letter-spacing:.12em; font-size:.67rem; }
+    .story-list h2 { font-size:1.45rem; margin:15px 0 10px; }
+    .story-list p { color:var(--muted); line-height:1.7; }
+    .town-page-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    @media(max-width:800px) { .story-list { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header scrolled">
+    <a class="brand" href="index.html"><img src="logo.png" alt="Living in the Delta logo"><span>Living in the Delta</span></a>
+    <nav class="nav-links" style="display:flex"><a href="index.html">Home</a><a href="index.html#towns">Towns</a><a href="index.html#casting">Get Featured</a></nav>
+  </header>
+
+  <main>
+    <section class="town-page-hero">
+      <div class="reveal visible">
+        <p class="eyebrow">Production Home Base</p>
+        <h1>Cleveland, Mississippi</h1>
+        <p>Cleveland is the home base of Living in the Delta and the starting point for stories about local businesses, arts, education, food, events, history, and the personalities who make the community memorable.</p>
+        <div class="town-page-actions">
+          <a class="button primary" href="mailto:livinginthedelta@yahoo.com?subject=Cleveland%20Story%20Idea">Suggest a Cleveland Story</a>
+          <a class="button secondary" href="index.html#map">View the Map</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div><p class="section-label">Story Possibilities</p><h2>What we hope to feature.</h2></div>
+        <p>These categories are starting points. The strongest stories will come directly from the people who live and work here.</p>
+      </div>
+      <div class="story-list">
+        
+<article><span>Downtown & Business</span><h2>Local businesses</h2><p>Meet owners, employees, restaurants, shops, and organizations building Cleveland’s local economy.</p></article>
+<article><span>Arts & Education</span><h2>Creative community</h2><p>Highlight music, theatre, photography, schools, college life, artists, and the people helping others learn.</p></article>
+<article><span>Events & Culture</span><h2>Hometown traditions</h2><p>Capture festivals, community gatherings, sports, local history, food, and the moments that bring people together.</p></article>
+
+      </div>
+    </section>
+
+    <section class="feature-strip section">
+      <div class="feature-copy">
+        <p class="section-label">Be Part of the Story</p>
+        <h2>Do you know someone in Cleveland we should meet?</h2>
+        <p>Send the show a business, organization, family, event, tradition, historical story, or community personality worth highlighting.</p>
+        <a class="button primary" href="mailto:livinginthedelta@yahoo.com?subject=Cleveland%20Feature%20Suggestion">Email Living in the Delta</a>
+      </div>
+      <div class="feature-logo"><img src="logo.png" alt="Living in the Delta"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><img src="logo.png" alt=""><div><strong>Living in the Delta</strong><span>Our People. Our Places. Our Story.</span></div></div>
+    <div class="footer-links"><a href="index.html">Home</a><a href="https://www.instagram.com/livinginthedelta/">Instagram</a><a href="https://www.youtube.com/@LivingintheDelta">YouTube</a></div>
+    <p>© <span id="year"></span> Living in the Delta.</p>
+  </footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

@@ -8,12 +8,12 @@ const modalCopy = document.getElementById("modal-copy");
 document.getElementById("year").textContent = new Date().getFullYear();
 
 window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 35);
+  header?.classList.toggle("scrolled", window.scrollY > 35);
 });
 
 menuButton?.addEventListener("click", () => {
-  const isOpen = nav.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", String(isOpen));
+  const open = nav.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(open));
 });
 
 nav?.querySelectorAll("a").forEach(link => {
@@ -23,43 +23,19 @@ nav?.querySelectorAll("a").forEach(link => {
   });
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      revealObserver.unobserve(entry.target);
+      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll(".reveal").forEach(element => revealObserver.observe(element));
-
-const counters = document.querySelectorAll(".counter");
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-
-    const counter = entry.target;
-    const target = Number(counter.dataset.target || 0);
-    const suffix = counter.dataset.suffix || "";
-    const duration = 1200;
-    const start = performance.now();
-
-    const update = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      counter.textContent = Math.round(target * eased) + suffix;
-      if (progress < 1) requestAnimationFrame(update);
-    };
-
-    requestAnimationFrame(update);
-    counterObserver.unobserve(counter);
-  });
-}, { threshold: 0.6 });
-
-counters.forEach(counter => counterObserver.observe(counter));
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
 function openModal(title, copy) {
+  if (!modal || !modalTitle || !modalCopy) return;
   modalTitle.textContent = title;
   modalCopy.textContent = copy;
   modal.classList.add("open");
@@ -69,6 +45,7 @@ function openModal(title, copy) {
 }
 
 function closeModal() {
+  if (!modal) return;
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
@@ -77,8 +54,8 @@ function closeModal() {
 document.querySelectorAll(".trailer-button").forEach(button => {
   button.addEventListener("click", () => {
     openModal(
-      "The official teaser is coming soon.",
-      "Follow the official Facebook page so you are among the first to see it."
+      "The official introduction is coming soon.",
+      "The video section is ready. Once your first video is uploaded, its YouTube embed can replace this preview screen."
     );
   });
 });
@@ -86,8 +63,8 @@ document.querySelectorAll(".trailer-button").forEach(button => {
 document.querySelectorAll(".episode-info").forEach(button => {
   button.addEventListener("click", () => {
     openModal(
-      button.dataset.episode,
-      "This episode is currently in development. More details, photos, and release information will be added as production moves forward."
+      button.dataset.episode || "Episode details",
+      "This episode is currently in development. Interviews, locations, filming dates, and release information will be added as they are confirmed."
     );
   });
 });
@@ -95,78 +72,39 @@ document.querySelectorAll(".episode-info").forEach(button => {
 document.querySelectorAll(".gallery-tile").forEach(button => {
   button.addEventListener("click", () => {
     openModal(
-      button.dataset.caption,
-      "Original photos will be added to this gallery once production begins."
+      button.dataset.caption || "Visual journal",
+      "This gallery category is ready for your original photos and production stills once filming begins."
     );
   });
 });
 
-document.querySelectorAll("[data-close-modal]").forEach(element => {
-  element.addEventListener("click", closeModal);
-});
-
+document.querySelectorAll("[data-close-modal]").forEach(el => el.addEventListener("click", closeModal));
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && modal.classList.contains("open")) closeModal();
+  if (event.key === "Escape" && modal?.classList.contains("open")) closeModal();
 });
 
-const deltaTowns = {
+const towns = {
   cleveland: {
     name: "Cleveland",
     coords: [33.7440, -90.7248],
     status: "Home Base",
-    description: "The home base of Living in the Delta and the starting point for the series."
+    description: "The production home base and starting point for local businesses, events, arts, education, food, and community stories."
   },
-  shaw: {
-    name: "Shaw",
-    coords: [33.6029, -90.7668],
-    status: "Future Story Location",
-    description: "A close-knit Delta town with local history, family stories, and community pride."
-  },
-  ruleville: {
-    name: "Ruleville",
-    coords: [33.7251, -90.5512],
-    status: "Future Story Location",
-    description: "A possible stop for community features, businesses, and hometown personalities."
-  },
-  indianola: {
-    name: "Indianola",
-    coords: [33.4509, -90.6551],
-    status: "Future Story Location",
-    description: "Music, food, culture, and local life offer many possible stories."
-  },
-  greenville: {
-    name: "Greenville",
-    coords: [33.4101, -91.0618],
-    status: "Future Story Location",
-    description: "A major Delta city with river culture, events, businesses, and unforgettable personalities."
-  },
-  clarksdale: {
-    name: "Clarksdale",
-    coords: [34.2001, -90.5709],
-    status: "Future Story Location",
-    description: "Known for blues history, arts, tourism, and a strong creative community."
-  },
-  greenwood: {
-    name: "Greenwood",
-    coords: [33.5162, -90.1795],
-    status: "Future Story Location",
-    description: "A possible destination for food, history, business, and lifestyle features."
-  },
-  leland: {
-    name: "Leland",
-    coords: [33.4057, -90.8973],
-    status: "Future Story Location",
-    description: "A Delta town with art, agriculture, culture, and hometown stories."
+  boyle: {
+    name: "Boyle",
+    coords: [33.7040, -90.7275],
+    status: "Featured Community",
+    description: "A close-knit neighboring community selected as one of the first places featured by Living in the Delta."
   }
 };
 
-function initializeDeltaMap() {
+function initializeMap() {
   const mapElement = document.getElementById("delta-map");
   if (!mapElement || typeof L === "undefined") return;
 
-  const selectedTown = document.getElementById("selected-town");
-  const townFilter = document.getElementById("town-filter");
-  const map = L.map(mapElement, { scrollWheelZoom: false, zoomControl: true });
+  const selected = document.getElementById("selected-town");
+  const filter = document.getElementById("town-filter");
+  const map = L.map(mapElement, { scrollWheelZoom: false }).setView([33.724, -90.726], 11);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
@@ -174,65 +112,49 @@ function initializeDeltaMap() {
   }).addTo(map);
 
   const markers = {};
-  const allCoordinates = [];
+  const bounds = [];
 
-  const updatePanel = town => {
-    selectedTown.innerHTML = `
-      <span>${town.status}</span>
-      <strong>${town.name}</strong>
-      <p>${town.description}</p>
-    `;
-  };
+  function updatePanel(town) {
+    selected.innerHTML = `<span>${town.status}</span><strong>${town.name}</strong><p>${town.description}</p>`;
+  }
 
-  Object.entries(deltaTowns).forEach(([key, town]) => {
-    allCoordinates.push(town.coords);
-    const isHome = key === "cleveland";
+  Object.entries(towns).forEach(([key, town]) => {
+    bounds.push(town.coords);
     const icon = L.divIcon({
       className: "",
-      html: `<span class="delta-marker${isHome ? " home" : ""}" aria-hidden="true"></span>`,
-      iconSize: isHome ? [36, 36] : [28, 28],
-      iconAnchor: isHome ? [18, 18] : [14, 14],
-      popupAnchor: [0, -18]
+      html: `<span class="delta-marker${key === "cleveland" ? " home" : ""}" aria-hidden="true"></span>`,
+      iconSize: key === "cleveland" ? [36,36] : [28,28],
+      iconAnchor: key === "cleveland" ? [18,18] : [14,14]
     });
 
     const marker = L.marker(town.coords, { icon, title: town.name }).addTo(map);
     marker.bindPopup(`<strong>${town.name}</strong><span>${town.status}</span><p>${town.description}</p>`);
     marker.on("click", () => {
       updatePanel(town);
-      townFilter.value = key;
+      filter.value = key;
     });
     markers[key] = marker;
   });
 
-  const fullBounds = L.latLngBounds(allCoordinates);
-  map.fitBounds(fullBounds.pad(0.16));
+  const fullBounds = L.latLngBounds(bounds);
+  map.fitBounds(fullBounds.pad(0.55));
 
-  townFilter.addEventListener("change", event => {
+  filter?.addEventListener("change", event => {
     const key = event.target.value;
     if (key === "all") {
-      map.fitBounds(fullBounds.pad(0.16));
+      map.fitBounds(fullBounds.pad(0.55));
       map.closePopup();
-      selectedTown.innerHTML = `
-        <span>Currently viewing</span>
-        <strong>The Mississippi Delta</strong>
-        <p>Choose a marker or town above to learn more.</p>
-      `;
+      selected.innerHTML = `<span>Current launch area</span><strong>Cleveland & Boyle</strong><p>Select a marker to learn more about the community and planned story focus.</p>`;
       return;
     }
-
-    const town = deltaTowns[key];
+    const town = towns[key];
     if (!town) return;
-    map.flyTo(town.coords, 12, { duration: 1.1 });
+    map.flyTo(town.coords, 13, { duration: 1 });
     markers[key].openPopup();
     updatePanel(town);
   });
 
-  setTimeout(() => map.invalidateSize(), 200);
+  setTimeout(() => map.invalidateSize(), 250);
 }
 
-window.addEventListener("load", initializeDeltaMap);
-
-
-document.querySelectorAll(".social-card").forEach((card, index) => {
-  card.style.transitionDelay = `${index * 45}ms`;
-});
+window.addEventListener("load", initializeMap);
