@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Life in the Delta — a reality-style docuseries sharing real people, real stories, and real life in the Mississippi Delta." />
+  <title>Life in the Delta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Life in the Delta home">
+      <img src="logo.png" alt="Life in the Delta logo" />
+      <span>Life in the Delta</span>
+    </a>
+
+    <button class="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#episodes">Episodes</a>
+      <a href="#community">Community</a>
+      <a href="#map">Map</a>
+      <a href="#casting">Casting</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">A Mississippi Delta Reality-Style Docuseries</p>
+        <h1>Small Town.<br />Big Personalities.<br /><span>Real Life.</span></h1>
+        <p class="hero-copy">
+          Real people, real stories, and the everyday moments that make the Mississippi Delta unforgettable.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#casting">Join the Show</a>
+          <a class="button secondary" href="#about">Discover the Story</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="announcement">
+      <strong>🎬 Now in development:</strong>
+      <span>Community members, businesses, organizations, and events are invited to be featured.</span>
+    </section>
+
+    <section class="section split" id="about">
+      <div>
+        <p class="section-label">About the Show</p>
+        <h2>Welcome to the Delta.</h2>
+        <p>
+          <strong>Life in the Delta</strong> is a reality-style documentary series created by Jase Herrin.
+          The show follows everyday life while spotlighting the people, local businesses, events, traditions,
+          and hidden gems that give the Mississippi Delta its heart.
+        </p>
+        <p>
+          This is not scripted drama. It is a celebration of genuine personalities, hometown pride,
+          hard work, humor, friendship, and community.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <img src="logo.png" alt="Life in the Delta official show logo" />
+        <div>
+          <span>Genre</span>
+          <strong>Reality • Documentary • Lifestyle</strong>
+        </div>
+        <div>
+          <span>Location</span>
+          <strong>The Mississippi Delta</strong>
+        </div>
+        <div>
+          <span>Status</span>
+          <strong>In Development</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="episodes">
+      <p class="section-label">Season One</p>
+      <h2>Stories worth watching.</h2>
+
+      <div class="card-grid">
+        <article class="episode-card">
+          <span>Episode 01</span>
+          <h3>Welcome to the Delta</h3>
+          <p>Meet the people, places, and stories at the heart of the series.</p>
+        </article>
+        <article class="episode-card">
+          <span>Episode 02</span>
+          <h3>Picture Perfect?</h3>
+          <p>A busy photography weekend brings creativity, laughs, and unexpected problems.</p>
+        </article>
+        <article class="episode-card">
+          <span>Episode 03</span>
+          <h3>Community Strong</h3>
+          <p>Local events and hometown personalities take center stage.</p>
+        </article>
+        <article class="episode-card">
+          <span>Episode 04</span>
+          <h3>Small Town Adventures</h3>
+          <p>Hidden gems, local food, and unforgettable Delta experiences.</p>
+        </article>
+      </div>
+
+      <p class="coming-soon">More episode announcements coming soon.</p>
+    </section>
+
+    <section class="section" id="community">
+      <p class="section-label">Community Spotlight</p>
+      <h2>The Delta is the main character.</h2>
+
+      <div class="community-grid">
+        <div class="community-item">
+          <span>🏪</span>
+          <h3>Small Businesses</h3>
+          <p>Meet the owners and teams helping our towns thrive.</p>
+        </div>
+        <div class="community-item">
+          <span>🎉</span>
+          <h3>Local Events</h3>
+          <p>Festivals, celebrations, school events, and community gatherings.</p>
+        </div>
+        <div class="community-item">
+          <span>🌾</span>
+          <h3>Delta Stories</h3>
+          <p>Neighbors, traditions, family histories, and everyday life.</p>
+        </div>
+        <div class="community-item">
+          <span>❤️</span>
+          <h3>People Who Give Back</h3>
+          <p>Volunteers, educators, leaders, and hometown heroes.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section map-section" id="map">
+      <div class="map-heading">
+        <div>
+          <p class="section-label">Explore the Region</p>
+          <h2>Interactive Delta Map</h2>
+          <p>
+            Select a town marker to discover possible filming locations, community stories,
+            local businesses, and future episode stops across the Mississippi Delta.
+          </p>
+        </div>
+
+        <div class="map-controls" aria-label="Map filters">
+          <label for="town-filter">Jump to a town</label>
+          <select id="town-filter">
+            <option value="all">Show the full Delta</option>
+            <option value="cleveland">Cleveland</option>
+            <option value="shaw">Shaw</option>
+            <option value="ruleville">Ruleville</option>
+            <option value="indianola">Indianola</option>
+            <option value="greenville">Greenville</option>
+            <option value="clarksdale">Clarksdale</option>
+            <option value="greenwood">Greenwood</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="delta-map" role="application" aria-label="Interactive map of selected Mississippi Delta towns"></div>
+
+      <div class="map-legend" aria-label="Map legend">
+        <span><i class="legend-dot featured"></i> Home base</span>
+        <span><i class="legend-dot future"></i> Future story location</span>
+      </div>
+
+      <p class="map-note">
+        Map locations are general town centers. Exact filming locations will only be shared with permission.
+      </p>
+    </section>
+
+    <section class="section casting" id="casting">
+      <div class="casting-content">
+        <p class="section-label">Casting & Features</p>
+        <h2>Be part of <em>Life in the Delta.</em></h2>
+        <p>
+          We are looking for community members, families, creators, business owners, organizations,
+          event organizers, musicians, educators, volunteers, and anyone with a story worth sharing.
+        </p>
+
+        <div class="casting-list">
+          <span>✓ No acting experience needed</span>
+          <span>✓ Businesses and events may apply</span>
+          <span>✓ Participants must complete a release form</span>
+          <span>✓ A parent or guardian must approve minors</span>
+        </div>
+
+        <a class="button primary" href="mailto:YOUR-EMAIL@example.com?subject=Life%20in%20the%20Delta%20Interest">
+          Email the Show
+        </a>
+        <p class="small-note">Replace the email address in the website file with your official contact email.</p>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div>
+        <p class="section-label">Stay Connected</p>
+        <h2>Follow the journey.</h2>
+        <p>
+          Follow the official page for casting updates, behind-the-scenes clips, community features,
+          trailers, and future episode announcements.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <a href="#" aria-label="Facebook page">Facebook</a>
+        <a href="#" aria-label="YouTube channel">YouTube</a>
+        <a href="#" aria-label="TikTok profile">TikTok</a>
+        <a href="#" aria-label="Instagram profile">Instagram</a>
+        <a href="mailto:YOUR-EMAIL@example.com">Business Inquiries</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="logo.png" alt="" />
+    <div>
+      <strong>Life in the Delta</strong>
+      <p>Small Town. Big Personalities. Real Life.</p>
+      <p>© <span id="year"></span> Life in the Delta. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
