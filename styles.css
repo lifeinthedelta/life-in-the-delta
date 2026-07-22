@@ -635,3 +635,185 @@ footer { display: grid; grid-template-columns: 1fr auto auto; gap: 40px; align-i
     min-height: 120px;
   }
 }
+
+
+/* =========================================================
+   VERSION 4.1 — THEN & NOW MAP GALLERIES
+   ========================================================= */
+
+.map-gallery-button {
+  width: 100%;
+  margin-top: 13px;
+  padding: 12px 15px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold-light);
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: background .25s ease, color .25s ease;
+}
+.map-gallery-button:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.town-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3200;
+  display: none;
+  place-items: center;
+  padding: 24px;
+}
+.town-modal.open {
+  display: grid;
+}
+.town-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.86);
+  backdrop-filter: blur(13px);
+}
+.town-modal-dialog {
+  position: relative;
+  width: min(1100px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid rgba(201,154,70,.5);
+  background:
+    radial-gradient(circle at 85% 10%, rgba(201,154,70,.11), transparent 25%),
+    #101410;
+}
+.town-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  background: rgba(8,10,8,.75);
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+.town-modal-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-right: 50px;
+}
+.town-modal-heading h2 {
+  margin: 0;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: .93;
+  text-transform: uppercase;
+}
+.town-modal-heading > span {
+  margin-bottom: 9px;
+  color: var(--gold-light);
+  font-family: "Oswald", sans-serif;
+  font-size: .7rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.town-modal-description {
+  max-width: 720px;
+  margin: 20px 0 32px;
+  color: var(--muted);
+}
+.town-photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.town-photo-card {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.town-photo-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #171b17;
+}
+.town-photo-card.historic img {
+  filter: sepia(.72) contrast(1.05) saturate(.72);
+}
+.town-photo-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 8px 12px;
+  border: 1px solid rgba(230,200,134,.48);
+  background: rgba(8,10,8,.8);
+  color: var(--gold-light);
+  font-family: "Oswald", sans-serif;
+  font-size: .68rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+.town-photo-card figcaption {
+  display: grid;
+  gap: 5px;
+  min-height: 105px;
+  padding: 20px;
+}
+.town-photo-card figcaption strong {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.12rem;
+  text-transform: uppercase;
+}
+.town-photo-card figcaption span {
+  color: var(--muted);
+  font-size: .84rem;
+}
+.town-photo-credit {
+  margin: 20px 0 0;
+  color: #777b74;
+  font-size: .72rem;
+}
+
+.leaflet-tooltip {
+  border: 1px solid rgba(201,154,70,.5);
+  border-radius: 0;
+  background: #101310;
+  color: var(--cream);
+  box-shadow: none;
+  font-family: "Oswald", sans-serif;
+  font-size: .7rem;
+  letter-spacing: .06em;
+}
+.leaflet-tooltip-top::before {
+  border-top-color: #101310;
+}
+
+@media (max-width: 760px) {
+  .town-modal {
+    padding: 10px;
+  }
+  .town-modal-dialog {
+    max-height: calc(100vh - 20px);
+    padding: 42px 18px 24px;
+  }
+  .town-modal-heading {
+    display: block;
+    padding-right: 28px;
+  }
+  .town-modal-heading > span {
+    display: inline-block;
+    margin-top: 12px;
+  }
+  .town-photo-grid {
+    grid-template-columns: 1fr;
+  }
+}

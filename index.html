@@ -254,7 +254,7 @@
           <p class="section-label">Explore the Region</p>
           <h2>Interactive Delta map.</h2>
         </div>
-        <p>Select a town to explore possible filming stops and future community stories.</p>
+        <p>Select a town to open a Then & Now gallery with a historic view and a present-day view.</p>
       </div>
 
       <div class="map-layout">
@@ -277,7 +277,7 @@
           <div class="selected-town" id="selected-town" aria-live="polite">
             <span>Currently viewing</span>
             <strong>The Mississippi Delta</strong>
-            <p>Choose a marker or town above to learn more.</p>
+            <p>Choose a marker or town above to see its Then & Now gallery.</p>
           </div>
 
           <div class="map-legend">
@@ -285,7 +285,7 @@
             <span><i class="legend-dot future"></i> Future story location</span>
           </div>
 
-          <p class="map-note">Markers show general town centers, not private filming locations.</p>
+          <p class="map-note">Click any marker to view the town’s Then & Now images. Markers show general town centers, not private filming locations.</p>
         </aside>
       </div>
     </section>
@@ -545,6 +545,50 @@
     </div>
     <p>© <span id="year"></span> Life in the Delta. Real people. Real stories. Real Delta.</p>
   </footer>
+
+
+  <div class="town-modal" id="town-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="town-modal-title">
+    <div class="town-modal-backdrop" data-close-town-modal></div>
+
+    <div class="town-modal-dialog">
+      <button class="town-modal-close" type="button" aria-label="Close town gallery" data-close-town-modal>×</button>
+
+      <div class="town-modal-heading">
+        <div>
+          <p class="section-label">Then &amp; Now</p>
+          <h2 id="town-modal-title">Delta Town</h2>
+        </div>
+        <span id="town-modal-status">Future Story Location</span>
+      </div>
+
+      <p class="town-modal-description" id="town-modal-description"></p>
+
+      <div class="town-photo-grid">
+        <figure class="town-photo-card historic">
+          <div class="town-photo-label">Then</div>
+          <img id="town-historic-image" src="" alt="">
+          <figcaption>
+            <strong id="town-historic-title">Historic view</strong>
+            <span id="town-historic-caption"></span>
+          </figcaption>
+        </figure>
+
+        <figure class="town-photo-card present">
+          <div class="town-photo-label">Now</div>
+          <img id="town-present-image" src="" alt="">
+          <figcaption>
+            <strong id="town-present-title">Present-day view</strong>
+            <span id="town-present-caption"></span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="town-photo-credit">
+        Historic and present-day images are linked from public cultural and archival sources.
+        Image availability may depend on the source website.
+      </p>
+    </div>
+  </div>
 
   <div class="modal" id="site-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-backdrop" data-close-modal></div>
