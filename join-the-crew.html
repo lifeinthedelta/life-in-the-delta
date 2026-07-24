@@ -9,10 +9,12 @@
 <body>
   <main class="application-page">
     <div class="application-wrap">
+      <a class="back-link" href="index.html">← Back to Living in the Delta</a>
+
       <header class="application-header">
-        <p class="application-kicker">Living in the Delta</p>
-        <h1>Join Our Crew</h1>
-        <p>Tell us about yourself and how you would like to help bring stories from the Mississippi Delta to life.</p>
+        <p class="application-kicker">Volunteer production crew</p>
+        <h1>Join the people telling the Delta’s stories.</h1>
+        <p>Share your experience, availability, and the role you are interested in.</p>
       </header>
 
       <section class="application-card">
@@ -25,14 +27,16 @@
             <div class="field">
               <label for="position">Position *</label>
               <select id="position" name="position" required>
-                <option value="">Select one</option>
+                <option value="">Choose a role</option>
                 <option>Camera Operator</option>
                 <option>Drone Operator</option>
                 <option>Photographer</option>
                 <option>Video Editor</option>
+                <option>Audio Technician</option>
                 <option>Production Assistant</option>
                 <option>Story Researcher</option>
                 <option>Historian</option>
+                <option>Writer</option>
                 <option>Social Media Team</option>
                 <option>Graphic Designer</option>
                 <option>Community Volunteer</option>
@@ -40,29 +44,26 @@
               </select>
             </div>
             <div class="field"><label for="age">Age</label><input id="age" name="age" type="number" min="13" max="100"></div>
-            <div class="field full"><label for="experience">Experience</label><textarea id="experience" name="experience"></textarea></div>
-            <div class="field full"><label for="equipment">Equipment Owned</label><textarea id="equipment" name="equipment"></textarea></div>
+            <div class="field full"><label for="experience">Relevant Experience</label><textarea id="experience" name="experience"></textarea></div>
+            <div class="field full"><label for="equipment">Equipment You Own</label><textarea id="equipment" name="equipment"></textarea></div>
             <div class="field full"><label for="availability">Availability *</label><textarea id="availability" name="availability" required></textarea></div>
             <div class="field full"><label for="portfolio">Portfolio or Demo Reel</label><input id="portfolio" name="portfolio" type="url" placeholder="https://"></div>
             <div class="field full"><label for="why">Why do you want to join? *</label><textarea id="why" name="why" required></textarea></div>
             <div class="field full">
               <label for="volunteer">Volunteer Confirmation *</label>
               <select id="volunteer" name="volunteer" required>
-                <option value="">Select one</option>
+                <option value="">Choose one</option>
                 <option>Yes, I understand this is currently a volunteer opportunity.</option>
                 <option>No, I am only interested in paid opportunities.</option>
               </select>
             </div>
           </div>
 
-          <p class="helper">Submitting opens your email app with the application addressed to Delta House Productions. Review it, then press Send.</p>
-
-          <div class="volunteer-note">Applicants under 18 may need permission from a parent or guardian before participating in filming or production activities.</div>
-
-          <div class="application-actions">
-            <button class="submit-button" type="submit">Create Application Email →</button>
-            <a class="back-button" href="index.html">Back to Website</a>
+          <div class="notice">
+            Applicants under 18 may need permission from a parent or guardian before participating.
           </div>
+
+          <button class="submit-button" type="submit">Create Application Email →</button>
         </form>
       </section>
     </div>

@@ -1,5 +1,6 @@
 document.getElementById("crewApplication").addEventListener("submit", function(event) {
   event.preventDefault();
+
   const form = new FormData(event.target);
   const value = name => form.get(name) || "Not provided";
 
@@ -33,5 +34,9 @@ Volunteer confirmation:
 ${value("volunteer")}`
   );
 
-  window.location.href = "mailto:deltahouseproductions@outlook.com?subject=" + subject + "&body=" + body;
+  window.location.href =
+    "mailto:deltahouseproductions@outlook.com?subject=" +
+    subject +
+    "&body=" +
+    body;
 });
