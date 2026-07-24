@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply to join the volunteer production crew for Living in the Delta.">
+  <title>Join Our Crew | Living in the Delta</title>
+  <link rel="stylesheet" href="crew-application.css">
+</head>
+<body>
+  <main class="application-page">
+    <div class="application-wrap">
+      <header class="application-header">
+        <p class="application-kicker">Living in the Delta</p>
+        <h1>Join Our Crew</h1>
+        <p>Tell us about yourself, the role you are interested in, and how you would like to help bring stories from the Mississippi Delta to life.</p>
+      </header>
+
+      <section class="application-card">
+        <form id="crewApplication">
+          <div class="application-grid">
+            <div class="field">
+              <label for="name">Full Name *</label>
+              <input id="name" name="name" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address *</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number *</label>
+              <input id="phone" name="phone" type="tel" required>
+            </div>
+
+            <div class="field">
+              <label for="city">City and State *</label>
+              <input id="city" name="city" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="age">Age</label>
+              <input id="age" name="age" type="number" min="13" max="100">
+            </div>
+
+            <div class="field">
+              <label for="position">Position Interested In *</label>
+              <select id="position" name="position" required>
+                <option value="">Select a position</option>
+                <option>Camera Operator</option>
+                <option>Drone Operator</option>
+                <option>Photographer</option>
+                <option>Video Editor</option>
+                <option>Audio Technician</option>
+                <option>Production Assistant</option>
+                <option>Story Researcher</option>
+                <option>Writer</option>
+                <option>Historian</option>
+                <option>Social Media Team</option>
+                <option>Graphic Designer</option>
+                <option>Community Volunteer</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="experience">Relevant Experience</label>
+              <textarea id="experience" name="experience" placeholder="Tell us about previous filming, editing, photography, research, media, or volunteer experience."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="equipment">Equipment You Own</label>
+              <textarea id="equipment" name="equipment" placeholder="List any cameras, drones, microphones, lighting, editing software, computers, or other equipment."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="availability">Availability *</label>
+              <textarea id="availability" name="availability" required placeholder="Tell us which days and times you are normally available."></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="portfolio">Portfolio or Demo Reel Link</label>
+              <input id="portfolio" name="portfolio" type="url" placeholder="https://">
+            </div>
+
+            <div class="field full">
+              <label for="why">Why Do You Want to Join? *</label>
+              <textarea id="why" name="why" required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="additional">Additional Information</label>
+              <textarea id="additional" name="additional"></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="volunteer">Volunteer Opportunity Confirmation *</label>
+              <select id="volunteer" name="volunteer" required>
+                <option value="">Please select</option>
+                <option>Yes, I understand this is currently a volunteer opportunity.</option>
+                <option>No, I am only interested in paid opportunities.</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="helper">Submitting the form opens your email app with the completed application addressed to Delta House Productions. Review the email, then press Send.</p>
+
+          <div class="volunteer-note">
+            This production is currently volunteer-based. Applicants under 18 may need permission from a parent or guardian before participating in filming or production activities.
+          </div>
+
+          <div class="application-actions">
+            <button class="submit-button" type="submit">Create Application Email →</button>
+            <a class="back-button" href="index.html">Back to Website</a>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="crew-application.js"></script>
+</body>
+</html>

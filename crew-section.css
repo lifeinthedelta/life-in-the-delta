@@ -1,0 +1,169 @@
+/* Crew Section Styles */
+:root {
+  --crew-bg: #f7f3eb;
+  --crew-card: #ffffff;
+  --crew-text: #1f2a25;
+  --crew-muted: #66706b;
+  --crew-accent: #7b4f2c;
+  --crew-accent-dark: #56371f;
+  --crew-border: rgba(31, 42, 37, 0.12);
+  --crew-shadow: 0 18px 45px rgba(31, 42, 37, 0.10);
+}
+
+.crew-section {
+  padding: 80px 20px;
+  background:
+    radial-gradient(circle at top left, rgba(123, 79, 44, 0.10), transparent 34%),
+    var(--crew-bg);
+  color: var(--crew-text);
+}
+
+.crew-container {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.crew-heading {
+  max-width: 760px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.crew-kicker {
+  margin: 0 0 10px;
+  color: var(--crew-accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.crew-heading h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.crew-heading p {
+  margin: 20px auto 0;
+  color: var(--crew-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.crew-card {
+  overflow: hidden;
+  background: var(--crew-card);
+  border: 1px solid var(--crew-border);
+  border-radius: 24px;
+  box-shadow: var(--crew-shadow);
+}
+
+.crew-photo {
+  display: grid;
+  place-items: center;
+  min-height: 250px;
+  background:
+    linear-gradient(135deg, rgba(123,79,44,.88), rgba(31,42,37,.92)),
+    #7b4f2c;
+  color: white;
+  font-size: 4.8rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.crew-content {
+  padding: 30px;
+}
+
+.crew-name {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.crew-role {
+  margin: 8px 0 18px;
+  color: var(--crew-accent);
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.crew-bio {
+  margin: 0;
+  color: var(--crew-muted);
+  line-height: 1.75;
+}
+
+.crew-join {
+  margin-top: 34px;
+  padding: 34px;
+  background: #1f2a25;
+  color: white;
+  border-radius: 24px;
+}
+
+.crew-join h3 {
+  margin: 0 0 12px;
+  font-size: 1.7rem;
+}
+
+.crew-role-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 26px;
+  padding: 0;
+  list-style: none;
+}
+
+.crew-role-list li {
+  padding: 9px 13px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  font-size: 0.9rem;
+}
+
+.crew-button {
+  display: inline-block;
+  padding: 13px 20px;
+  background: var(--crew-accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 12px;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.crew-button:hover {
+  transform: translateY(-2px);
+  background: var(--crew-accent-dark);
+}
+
+@media (max-width: 760px) {
+  .crew-section {
+    padding: 60px 16px;
+  }
+
+  .crew-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crew-photo {
+    min-height: 210px;
+  }
+
+  .crew-content,
+  .crew-join {
+    padding: 24px;
+  }
+}

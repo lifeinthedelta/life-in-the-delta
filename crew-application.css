@@ -1,0 +1,179 @@
+:root {
+  --bg: #f7f3eb;
+  --card: #ffffff;
+  --text: #1f2a25;
+  --muted: #66706b;
+  --accent: #7b4f2c;
+  --accent-dark: #56371f;
+  --border: rgba(31, 42, 37, 0.15);
+  --shadow: 0 18px 45px rgba(31, 42, 37, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(123,79,44,.11), transparent 32%),
+    var(--bg);
+}
+
+.application-page {
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+.application-wrap {
+  width: min(860px, 100%);
+  margin: 0 auto;
+}
+
+.application-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.application-kicker {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.application-header h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1;
+}
+
+.application-header p {
+  max-width: 680px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.application-card {
+  padding: 34px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.application-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(123,79,44,.14);
+  border-color: var(--accent);
+}
+
+textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+
+.helper {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.application-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.submit-button,
+.back-button {
+  display: inline-block;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.submit-button {
+  background: var(--accent);
+  color: white;
+}
+
+.submit-button:hover {
+  background: var(--accent-dark);
+}
+
+.back-button {
+  background: #eef0ed;
+  color: var(--text);
+}
+
+.volunteer-note {
+  margin-top: 22px;
+  padding: 16px;
+  border-left: 4px solid var(--accent);
+  background: #fbf8f2;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .application-page {
+    padding: 40px 14px;
+  }
+
+  .application-card {
+    padding: 22px;
+  }
+
+  .application-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+}
